@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Encanto de Ursos 🧸</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:#fff5f7;
+    color:#333;
+}
+
+/* Header */
+header{
+    background:#ff8fab;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+header h1{
+    font-size:28px;
+}
+
+/* Produtos */
+.produtos{
+    padding:50px 20px;
+    text-align:center;
+}
+
+.produtos h2{
+    margin-bottom:30px;
+    font-size:26px;
+}
+
+.grid{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:25px;
+}
+
+.card{
+    background:white;
+    width:250px;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card img{
+    width:100%;
+    border-radius:10px;
+}
+
+.card h3{
+    margin:15px 0 10px;
+}
+
+.preco{
+    font-size:18px;
+    font-weight:bold;
+    color:#ff477e;
+}
+
+button{
+    margin-top:15px;
+    padding:10px;
+    border:none;
+    border-radius:6px;
+    background:#ff8fab;
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#ff477e;
+}
+
+/* Footer */
+footer{
+    background:#ff8fab;
+    color:white;
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+}
+
+/* Responsivo */
+@media(max-width:768px){
+    .grid{
+        flex-direction:column;
+        align-items:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🧸 Encanto de Ursos</h1>
+    <p>Os ursinhos mais fofos para você!</p>
+</header>
+
+<section class="produtos">
+    <h2>Nossos Ursinhos</h2>
+
+    <div class="grid">
+
+        <div class="card">
+            <img src="https://i.imgur.com/4AiXzf8.jpeg" alt="Urso Caramelo">
+            <h3>Urso Caramelo</h3>
+            <p class="preco">R$ 89,90</p>
+            <button>Comprar</button>
+        </div>
+
+        <div class="card">
+            <img src="https://i.imgur.com/ZXBtVw7.jpeg" alt="Urso Panda Fofinho">
+            <h3>Urso Panda Fofinho</h3>
+            <p class="preco">R$ 109,90</p>
+            <button>Comprar</button>
+        </div>
+
+        <div class="card">
+            <img src="https://i.imgur.com/eTmWoAN.jpeg" alt="Urso Rosa Encantado">
+            <h3>Urso Rosa Encantado</h3>
+            <p class="preco">R$ 79,90</p>
+            <button>Comprar</button>
+        </div>
+
+        <div class="card">
+            <img src="https://i.imgur.com/QCNbOAo.jpeg" alt="Urso Gigante Amoroso">
+            <h3>Urso Gigante Amoroso</h3>
+            <p class="preco">R$ 199,90</p>
+            <button>Comprar</button>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    © 2026 Encanto de Ursos - Todos os direitos reservados 🧸
+</footer>
+
+</body>
+</html>
