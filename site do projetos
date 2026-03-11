@@ -1,162 +1,188 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Encanto de Ursos 🧸</title>
+<title>Painel de Controle</title>
 
 <style>
+
+/* Reset básico */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
-    background:#fff5f7;
-    color:#333;
+/* GRID PRINCIPAL */
+.container{
+    display:grid;
+    grid-template-columns: 220px 1fr;
+    grid-template-rows: 70px 1fr;
+    grid-template-areas:
+        "sidebar header"
+        "sidebar main";
+    height:100vh;
 }
 
-/* Header */
-header{
-    background:#ff8fab;
+/* MENU LATERAL */
+.sidebar{
+    grid-area: sidebar;
+    background:#2c3e50;
     color:white;
     padding:20px;
-    text-align:center;
-}
 
-header h1{
-    font-size:28px;
-}
-
-/* Produtos */
-.produtos{
-    padding:50px 20px;
-    text-align:center;
-}
-
-.produtos h2{
-    margin-bottom:30px;
-    font-size:26px;
-}
-
-.grid{
+    /* FLEXBOX */
     display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:25px;
+    flex-direction:column;
+    gap:15px;
 }
 
+.sidebar h2{
+    margin-bottom:10px;
+}
+
+.sidebar ul{
+    list-style:none;
+
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.sidebar li{
+    padding:8px;
+    cursor:pointer;
+}
+
+.sidebar li:hover{
+    background:#34495e;
+    border-radius:5px;
+}
+
+/* CABEÇALHO */
+.header{
+    grid-area: header;
+    background:#ecf0f1;
+    padding:20px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.header button{
+    padding:10px 20px;
+    border:none;
+    background:#3498db;
+    color:white;
+    border-radius:5px;
+    cursor:pointer;
+
+    /* TRANSIÇÃO */
+    transition: background 0.3s ease;
+}
+
+.header button:hover{
+    background:#1d6fa5;
+}
+
+/* CONTEÚDO PRINCIPAL */
+.main{
+    grid-area: main;
+    padding:20px;
+
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap:20px;
+}
+
+/* CAIXAS */
 .card{
     background:white;
-    width:250px;
-    border-radius:12px;
     padding:20px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.1);
-    transition:0.3s;
+    border-radius:8px;
+    box-shadow:0 3px 8px rgba(0,0,0,0.1);
+
+    /* ANIMAÇÃO */
+    animation: slideIn 0.8s ease forwards;
 }
 
-.card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 8px 20px rgba(0,0,0,0.15);
+/* Delay para aparecer uma depois da outra */
+.card:nth-child(2){
+    animation-delay:0.2s;
 }
 
-.card img{
-    width:100%;
-    border-radius:10px;
+.card:nth-child(3){
+    animation-delay:0.4s;
 }
 
-.card h3{
-    margin:15px 0 10px;
-}
-
-.preco{
-    font-size:18px;
-    font-weight:bold;
-    color:#ff477e;
-}
-
-button{
-    margin-top:15px;
-    padding:10px;
-    border:none;
-    border-radius:6px;
-    background:#ff8fab;
-    color:white;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-button:hover{
-    background:#ff477e;
-}
-
-/* Footer */
-footer{
-    background:#ff8fab;
-    color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:40px;
-}
-
-/* Responsivo */
-@media(max-width:768px){
-    .grid{
-        flex-direction:column;
-        align-items:center;
+/* KEYFRAMES */
+@keyframes slideIn{
+    from{
+        opacity:0;
+        transform:translateX(50px);
+    }
+    to{
+        opacity:1;
+        transform:translateX(0);
     }
 }
+
+/* RESPONSIVO */
+@media(max-width:768px){
+    .container{
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr;
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "main";
+    }
+
+    .sidebar{
+        flex-direction:row;
+        overflow-x:auto;
+    }
+
+    .sidebar ul{
+        flex-direction:row;
+    }
+}
+
 </style>
 </head>
 
 <body>
 
-<header>
-    <h1>🧸 Encanto de Ursos</h1>
-    <p>Os ursinhos mais fofos para você!</p>
-</header>
+<div class="container">
 
-<section class="produtos">
-    <h2>Nossos Ursinhos</h2>
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+        <h2>Menu</h2>
+        <ul>
+            <li>Dashboard</li>
+            <li>Usuários</li>
+            <li>Relatórios</li>
+            <li>Configurações</li>
+        </ul>
+    </aside>
 
-    <div class="grid">
+    <!-- CABEÇALHO -->
+    <header class="header">
+        <h1>Painel de Controle</h1>
+        <button>Entrar</button>
+    </header>
 
-        <div class="card">
-            <img src="https://i.imgur.com/4AiXzf8.jpeg" alt="Urso Caramelo">
-            <h3>Urso Caramelo</h3>
-            <p class="preco">R$ 89,90</p>
-            <button>Comprar</button>
-        </div>
+    <!-- CONTEÚDO -->
+    <main class="main">
+        <div class="card">Conteúdo 1</div>
+        <div class="card">Conteúdo 2</div>
+        <div class="card">Conteúdo 3</div>
+    </main>
 
-        <div class="card">
-            <img src="https://i.imgur.com/ZXBtVw7.jpeg" alt="Urso Panda Fofinho">
-            <h3>Urso Panda Fofinho</h3>
-            <p class="preco">R$ 109,90</p>
-            <button>Comprar</button>
-        </div>
-
-        <div class="card">
-            <img src="https://i.imgur.com/eTmWoAN.jpeg" alt="Urso Rosa Encantado">
-            <h3>Urso Rosa Encantado</h3>
-            <p class="preco">R$ 79,90</p>
-            <button>Comprar</button>
-        </div>
-
-        <div class="card">
-            <img src="https://i.imgur.com/QCNbOAo.jpeg" alt="Urso Gigante Amoroso">
-            <h3>Urso Gigante Amoroso</h3>
-            <p class="preco">R$ 199,90</p>
-            <button>Comprar</button>
-        </div>
-
-    </div>
-</section>
-
-<footer>
-    © 2026 Encanto de Ursos - Todos os direitos reservados 🧸
-</footer>
+</div>
 
 </body>
 </html>
